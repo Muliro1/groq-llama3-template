@@ -11,6 +11,17 @@ headers = {
 conversation_history = []
 
 def generate_response(prompt):
+    """
+    Generate a response to a given prompt using the GROQ server.
+
+    This function takes a single string prompt as an argument, appends it
+    to the conversation history, and then sends the full prompt to
+    the GROQ server. The server's response is then appended to the
+    conversation history and returned.
+
+    :param prompt: The user's prompt
+    :return: The server's response
+    """
     conversation_history.append(prompt)
 
     full_prompt = "\n".join(conversation_history)
