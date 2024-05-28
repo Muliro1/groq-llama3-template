@@ -5,7 +5,8 @@ This project uses the Groq Cloud API and Llama3 to build a chatbot application. 
 ## Tech Stack
 
 - [GroqCloud](https://console.groq.com/login) for the Groq Cloud API.
-- [Llama3](https://llama.meta.com/llama3/) for the language model.
+- [Llama3](https://llama.meta.com/llama3/) for the language model. Download llama3 from the website. Use "ollama run llama3" on 
+your terminal to run the model.
 - Python v3.9.13
 
 ## main.py
