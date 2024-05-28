@@ -25,19 +25,22 @@ chat_completion = client.chat.completions.create(
     ],
     model="llama3-8b-8192",
 )
+
+conversation_history = []
 def generate_response(prompt):
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {os.environ.get("GROQ_API_KEY")}'
     }
+    conversation_history.append(prompt)
+    full_prompt = "\n".join(conversation_history)
 
 
     data = {
         "model": "llama3-8b-8192",
-        "messages": [{"role": "user", "content": "write a one verse poem"}],
         "stream": False,
-        "prompt":prompt
+        "messages": conversation_history
     }
 
     response = requests.post(url, data=json.dumps(data), headers=headers)
@@ -45,14 +48,15 @@ def generate_response(prompt):
         response_text = response.text
         data = json.loads(response_text)
         actual_response = data['choices'][0]['message']['content']
-        print(actual_response)
+        conversation_history.append(actual_response)
+        return actual_response
     else:
-        print(response.status_code)
+        print(response.text)
 
 iface = gr.Interface(
     fn=generate_response,
     inputs=gr.Textbox(lines=3, label="Input"),
-    outputs=gr.Textbox(label="Output"),
+    outputs="text",
     title="GPT-3 Chatbot",
     description="This is a GPT-3 chatbot that generates responses to user prompts."
 )
