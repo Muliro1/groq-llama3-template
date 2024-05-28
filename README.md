@@ -12,6 +12,7 @@ your terminal to run the model.
 ## main.py
 
 `main.py` is a script that runs a chatbot in a web-based interface. It uses Django to handle HTTP requests and responses. When a user sends a message to the chatbot, the script sends the message to the Groq Cloud API, which uses Llama3 to generate a response. The response is then sent back to the user.
+run the file on your terminal then follow the generated link, which will take you to a web UI that has all the necessary to start chatting.
 
 ## main_cli.py
 
@@ -26,6 +27,7 @@ Update the `.env` file with your `GROQ_API_KEY`.
 ### Setup a virtual environment
 
 Run the following command to create a new virtual environment:
+To use the commandline version, first type "ollama run llama3" on your terminal...then run the commandline file - main_cli.py
 
 ```bash
 python3 -m venv env
