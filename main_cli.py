@@ -22,7 +22,7 @@ def generate_response():
     :return: The server's response
     """
     # Get the user's prompt
-    user_prompt = input("Enter your prompt , type s or S to stop:")
+    user_prompt = input(">>>  (type s or S to stop):")
     if user_prompt == 's' or user_prompt == 'S':
         print("Goodbye!")
         return None
@@ -55,9 +55,9 @@ def generate_response():
         # Print an error if the response status code is not 200
         print("Error:", response.status_code, response.text)
         return "Error"
-
-while True:
-    response = generate_response()
-    if response is None:
-        break
+if __name__ == "__main__":
+    while True:
+        response = generate_response()
+        if response is None:
+            break
 
