@@ -22,7 +22,10 @@ def generate_response():
     :return: The server's response
     """
     # Get the user's prompt
-    user_prompt = input("Enter your prompt: ")
+    user_prompt = input("Enter your prompt , type s or S to stop:")
+    if user_prompt == 's' or user_prompt == 'S':
+        print("Goodbye!")
+        return None
     # Add the user's prompt to the conversation history
     conversation_history.append(user_prompt)
     # Create a full prompt by joining the conversation history with newline characters
@@ -47,9 +50,14 @@ def generate_response():
         # Add the server's response to the conversation history
         conversation_history.append(actual_response)
         print(actual_response)
+        return actual_response
     else:
         # Print an error if the response status code is not 200
         print("Error:", response.status_code, response.text)
+        return "Error"
 
 while True:
-    generate_response()
+    response = generate_response()
+    if response is None:
+        break
+
