@@ -59,26 +59,12 @@ def generate_response():
         "stream": False,
         "prompt": full_prompt,
     }
+    #print(full_prompt)
     print(chat_completion.choices[0].message.content)
     return chat_completion.choices[0].message.content
 
     # Send the request to the server
-    '''response = requests.post(url, headers=headers, data=json.dumps(data))
 
-    # Check the response status code
-    if response.status_code == 200:
-        # Parse the response text
-        response_text = response.text
-        data = json.loads(response_text)
-        actual_response = data["response"]
-        # Add the server's response to the conversation history
-        conversation_history.append(actual_response)
-        print(actual_response)
-        return actual_response
-    else:
-        # Print an error if the response status code is not 200
-        print("Error:", response.status_code, response.text)
-        return "Error"'''
 if __name__ == "__main__":
     while True:
         response = generate_response()

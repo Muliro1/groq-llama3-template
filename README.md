@@ -18,6 +18,10 @@ run the file on your terminal then follow the generated link, which will take yo
 
 `main_cli.py` is a script that runs a chatbot in the command line. It uses Python's built-in `input()` function to get user input and print functions to display the chatbot's responses. Like `main.py`, it uses the Groq Cloud API and Llama3 to generate responses.
 
+## main_cli2.py
+
+`main_cli2.py` is similar to main_cli.py, the difference is instead of using the requests module from python, it creates a chat completion using the qroq api itself within the code
+
 ## Setup Instructions
 
 ### Update .env file
