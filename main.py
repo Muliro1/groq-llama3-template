@@ -41,7 +41,7 @@ def generate_response(prompt):
         data = json.loads(response_text)
         actual_response = data["response"]
         conversation_history.append(actual_response)
-        return actual_response
+        return (actual_response + "running locally on CEO_254")
     else:
         print("Error:", response.status_code, response.text)
         return None
@@ -51,5 +51,6 @@ iface = gr.Interface(
     inputs=gr.Textbox(lines=2, placeholder="Enter your prompt here..."),
     outputs="text"
 )
+print("Starting server...")
 
 iface.launch(share=True)

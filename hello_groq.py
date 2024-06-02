@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import requests
 import json
@@ -17,17 +19,15 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Explain the importance of fast language models",
-        },
-        {
-            "role": "user",
             "content": "What is the meaning of life?",}
     ],
     model="llama3-8b-8192",
 )
 
+print(chat_completion.choices[0].message.content)
+
 conversation_history = []
-def generate_response(prompt):
+'''def generate_response(prompt):
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         'Content-Type': 'application/json',
@@ -62,4 +62,4 @@ iface = gr.Interface(
 )
 
 #print(chat_completion.choices[0].message.content)
-iface.launch(share=True)
+iface.launch(share=True)'''
