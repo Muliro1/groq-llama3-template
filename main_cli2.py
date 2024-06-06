@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 import json
-import requests
 import os
 import requests
 import json
-import gradio as gr
+
 
 from groq import Groq
 
