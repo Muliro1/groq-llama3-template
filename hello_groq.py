@@ -27,7 +27,7 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 
 conversation_history = []
-'''def generate_response(prompt):
+def generate_response(prompt):
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         'Content-Type': 'application/json',
@@ -62,4 +62,4 @@ iface = gr.Interface(
 )
 
 #print(chat_completion.choices[0].message.content)
-iface.launch(share=True)'''
+iface.launch(share=True)
